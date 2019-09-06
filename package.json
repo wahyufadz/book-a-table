@@ -1,0 +1,26 @@
+{
+  "name": "book-a-table",
+  "version": "1.0.0",
+  "description": "Restaurant point of sales",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "concurrently \"cd backend && node server.js\" "
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wahyufadz/book-a-table.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wahyufadz/book-a-table/issues"
+  },
+  "homepage": "https://github.com/wahyufadz/book-a-table#readme",
+  "dependencies": {
+    "concurrently": "^4.1.2"
+  }
+}
+
+
