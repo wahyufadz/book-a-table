@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "concurrently \"cd backend && node server.js\" "
+    "start": "concurrently \"code .\" \"cd backend && nodemon server.js\" "
   },
   "repository": {
     "type": "git",
@@ -22,5 +22,3 @@
     "concurrently": "^4.1.2"
   }
 }
-
-
