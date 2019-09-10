@@ -1,7 +1,10 @@
 module.exports = (app) => {
-    require('./routes/note.route')(app);
+    const v1 = "/api/v1/"
 
-    app.get('/', (req, res) => {
-        res.json({ "message": "Welcome to EasyNotes application. Take notes quickly. Organize and keep track of all your notes." });
+    require('./routes/item.route')(app, v1);
+    require('./routes/recipe.route')(app, v1);
+
+    app.get(v1, (req, res) => {
+        res.json({ "message": "Welcome to Book-A-Table API version 1" });
     });
 }
