@@ -19,6 +19,8 @@
   },
   "homepage": "https://github.com/wahyufadz/book-a-table#readme",
   "dependencies": {
-    "concurrently": "^4.1.2"
+    "concurrently": "^4.1.2",
+    "swagger-jsdoc": "^1.3.0",
+    "swagger-ui-express": "^4.0.7"
   }
 }
