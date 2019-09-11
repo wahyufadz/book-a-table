@@ -1,4 +1,22 @@
 const mongoose = require('mongoose');
+/**
+* @swagger
+*
+* definition:
+*   recipes:
+*     properties:
+*       recipe_name:
+*         type: string
+*       sell_price:
+*         type: integer
+*       recipe_type:
+*         type: string
+*       ingredients:
+*         type: string
+*       is_active:
+*         type: boolean
+*
+*/
 
 const RecipeSchema = mongoose.Schema({
     recipe_name: {
@@ -19,6 +37,13 @@ const RecipeSchema = mongoose.Schema({
             'snack'
         ]
     },
+    ingredients: [
+        {
+            ingredient_name: String,
+            weight: Number,
+            cost: Number,
+        }
+    ],
     is_active: {
         type: Boolean,
         default: true

@@ -3,6 +3,21 @@ module.exports = (app, apiEndPoint) => {
 
     // Create a new Item
     app.post(apiEndPoint + 'items', items.create);
+    /**
+    * @swagger
+    * /items:
+    *   post:
+    *     tags:
+    *       - Items
+    *     description: create new items
+    *     produces:
+    *       - application/json
+    *     responses:
+    *       200:
+    *         description: create new items
+    *         schema:
+    *           $ref: '#/definitions/items'
+    */
 
     // Retrieve all Items
     app.get(apiEndPoint + 'items', items.findAll);

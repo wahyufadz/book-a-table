@@ -2,7 +2,9 @@ const express = require('express');
 const bodyParser = require('body-parser');
 
 require('dotenv').config()
+const db = process.env.DB || "mongodb://localhost:27017/book-a-table";
 const port = process.env.PORT || 3000;
+const url = process.env.URL || "localhost";
 
 // create express app
 const app = express();
@@ -14,7 +16,6 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 
 // Configuring the database
-const db = process.env.DB;
 const mongoose = require('mongoose');
 
 mongoose.Promise = global.Promise;
@@ -34,11 +35,11 @@ const swaggerJSDoc = require('swagger-jsdoc');
 // swagger definition
 const swaggerDefinition = {
     info: {
-        title: 'Node Swagger API',
+        title: 'Book-A-Table Backend API',
         version: '1.0.0',
-        description: 'Demonstrating how to describe a RESTful API with Swagger',
+        description: 'Book-A-Table RESTful API Documentation with Swagger',
     },
-    host: 'localhost:3030',
+    host: `${url}:${port}`,
     basePath: '/api/v1',
 };
 
@@ -47,7 +48,16 @@ const options = {
     // import swaggerDefinitions
     swaggerDefinition: swaggerDefinition,
     // path to the API docs
-    apis: ['./**/routes/*.js', 'src/routes.js'],// pass all in array
+    apis: [
+        //models
+        './**/models/*.js',
+
+        //routes
+        './**/routes/*.js',
+
+        //individual routes
+        'src/routes.js'
+    ],
 };
 
 // initialize swagger-jsdoc
@@ -65,6 +75,7 @@ const swaggerUi = require('swagger-ui-express');
 // combine swagger-jsdoc & swagger-ui-express
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
+//route
 require('./src/routes')(app);
 
 // listen for requests

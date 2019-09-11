@@ -1,4 +1,18 @@
 const mongoose = require('mongoose');
+/**
+* @swagger
+*
+* definition:
+*   items:
+*     properties:
+*       item_name:
+*         type: string
+*       sell_price:
+*         type: integer
+*       is_active:
+*         type: boolean
+*
+*/
 
 const ItemSchema = mongoose.Schema({
     item_name: String,
